@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="app.grapheneos.logviewer">
+
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.READ_LOGS_FULL" />
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
+
+    <application
+        android:label="@string/app_label"
+        android:largeHeap="true"
+    >
+        <provider
+            android:name=".BlobProvider"
+            android:authorities="${applicationId}.BlobProvider"
+            android:grantUriPermissions="true"
+            android:exported="false" />
+
+    </application>
+</manifest>

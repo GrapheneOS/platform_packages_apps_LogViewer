@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<permissions>
+    <privapp-permissions package="app.grapheneos.logviewer">
+        <permission name="android.permission.READ_LOGS" />
+        <permission name="android.permission.READ_LOGS_FULL" />
+    </privapp-permissions>
+</permissions>
