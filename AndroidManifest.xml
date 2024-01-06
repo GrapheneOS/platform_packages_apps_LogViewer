@@ -6,6 +6,9 @@
     <uses-permission android:name="android.permission.READ_LOGS_FULL" />
     <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
 
+    <permission android:name="app.grapheneos.logviewer.SHOW_LOGCAT"
+        android:protectionLevel="signature|privileged" />
+
     <permission android:name="app.grapheneos.logviewer.SHOW_ERROR_REPORT"
         android:protectionLevel="signature|preinstalled" />
 
@@ -13,6 +16,21 @@
         android:label="@string/app_label"
         android:largeHeap="true"
     >
+        <activity
+            android:name=".LogcatActivity"
+            android:permission="app.grapheneos.logviewer.SHOW_LOGCAT"
+            android:theme="@android:style/Theme.DeviceDefault.DayNight"
+            android:documentLaunchMode="always"
+            android:exported="true" >
+
+            <intent-filter>
+                <action android:name="${applicationId}.LOGCAT" />
+                <action android:name="${applicationId}.PKG_LOGCAT" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+        </activity>
+
         <activity
             android:name=".ErrorReportActivity"
             android:permission="app.grapheneos.logviewer.SHOW_ERROR_REPORT"
@@ -26,7 +44,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
+        
         <provider
             android:name=".BlobProvider"
             android:authorities="${applicationId}.BlobProvider"
