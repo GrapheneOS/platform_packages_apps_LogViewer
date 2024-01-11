@@ -279,7 +279,7 @@ public class LogcatActivity extends BaseActivity {
         if (item == miLogBuffers) {
             var b = new AlertDialog.Builder(this);
             b.setTitle(R.string.log_buffers);
-            String[] items = { "main", "system", "crash", "events", "radio", };
+            String[] items = { "main", "system", "crash", "events", "kernel", "radio", };
             ArrayList<String> curBuffers = getLogBuffers();
 
             boolean[] checkedItems = new boolean[items.length];
