@@ -24,6 +24,8 @@ import java.util.Arrays;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 
+// The purpose of this provider is to support sending blobs to other apps as a Uri without writing
+// them to storage
 public class BlobProvider extends ContentProvider {
     private static final String TAG = BlobProvider.class.getSimpleName();
 
@@ -34,6 +36,7 @@ public class BlobProvider extends ContentProvider {
 
     static class Entry {
         final Uri uri;
+        // blob is gzipped to reduce memory usage
         final byte[] gzBytes;
         final int size;
 
@@ -51,6 +54,7 @@ public class BlobProvider extends ContentProvider {
         }
     };
 
+    // Uri will be valid until our process is stopped or until the backing entry is evicted by new entries
     public static Uri getUri(String blobName, byte[] bytes) {
         var b = new Uri.Builder();
         b.scheme(ContentResolver.SCHEME_CONTENT);
