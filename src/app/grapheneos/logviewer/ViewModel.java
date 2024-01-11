@@ -110,6 +110,10 @@ public class ViewModel {
         final byte[] textBytes;
         final String fileName;
 
+        // Logs are plain text, but many apps apply unwanted processing to "text/plain" data (e.g.
+        // various kinds of link recognition).
+        // Also, the standard sharing UI displays previews for "text/plain" entries that are
+        // not helpful when sharing logs.
         static final String MIME_TYPE = "application/octet-stream";
 
         Snapshot(String title, String text, byte[] textBytes) {
