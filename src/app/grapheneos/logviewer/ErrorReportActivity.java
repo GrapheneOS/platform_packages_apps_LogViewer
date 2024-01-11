@@ -116,7 +116,7 @@ public class ErrorReportActivity extends BaseActivity {
         if (sourcePkg != null) {
             String installer = Utils.getInstallingPackage(this, sourcePkg);
             if (installer != null) {
-                l.add("installer: " + sourcePkg);
+                l.add("installer: " + installer);
             }
         }
 
