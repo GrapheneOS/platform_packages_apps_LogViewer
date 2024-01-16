@@ -14,12 +14,12 @@
 
     <application
         android:label="@string/app_label"
+        android:theme="@style/Theme"
         android:largeHeap="true"
     >
         <activity
             android:name=".LogcatActivity"
             android:permission="app.grapheneos.logviewer.SHOW_LOGCAT"
-            android:theme="@android:style/Theme.DeviceDefault.DayNight"
             android:documentLaunchMode="always"
             android:exported="true" >
 
@@ -34,7 +34,6 @@
         <activity
             android:name=".ErrorReportActivity"
             android:permission="app.grapheneos.logviewer.SHOW_ERROR_REPORT"
-            android:theme="@android:style/Theme.DeviceDefault.DayNight"
             android:documentLaunchMode="always"
             android:exported="true" >
 
